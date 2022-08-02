@@ -66,6 +66,10 @@ If the bloom is gzipped:
 }
 ~~~
 
+if the query exists, the result would be a `NOERROR` `CNAME` with the input plus a trailing `.` at the end. if the query is not present, you'll get an empty `NXDOMAIN` response. note that bloom filters are case-sensitive hence the DNS query and responses are also case-preserving. This behaviour is not strictly RFC-compliant, so take that into account if you're planning to put this instance of `coredns` behind other DNS servers. always keeping client, server and blooms lower-case solves this issue.  
+
+
+
 ## Also See
 
 See the [manual](https://coredns.io/manual).
